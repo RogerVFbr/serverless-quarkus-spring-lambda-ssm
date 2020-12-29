@@ -54,6 +54,7 @@ on his AWS Account.
 * [Git](https://git-scm.com/) - Versioning system.
 * [NodeJS 12+](https://nodejs.org/en/download/) - Pre-requisite for the *Serverless Framework* and deployment scripts.
 * [Serverless Framework](https://www.serverless.com/framework/docs/getting-started/) - Infra-structure as code.
+* [Docker](https://www.docker.com/get-started) - Used to build native API version.
 
 ## Installation
 Make sure you install and confirm the installation of the pre-required technologies if not already 
