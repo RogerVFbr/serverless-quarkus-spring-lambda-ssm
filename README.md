@@ -62,7 +62,7 @@ will not be covered on this doc. Execute from the command terminal:
 
 1. Make a local copy of this repository.
     ```
-    git clone https://github.com/RogerVFbr/serverless-quarkus-spring-lambda-sqs.git
+    git clone https://github.com/RogerVFbr/serverless-quarkus-spring-lambda-ssm.git
     ```
 
 2. Install the *Serverless Framework* if not already done.
