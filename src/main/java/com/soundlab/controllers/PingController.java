@@ -11,7 +11,7 @@ public class PingController {
 
     private static final Logger LOG = Logger.getLogger(PingController.class);
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, produces = { "application/json"} )
     public String ping() {
         LOG.info("PingController invoked.");
         return "Endpoint pinged.";

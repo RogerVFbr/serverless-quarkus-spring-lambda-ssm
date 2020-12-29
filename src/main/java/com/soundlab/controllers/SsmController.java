@@ -33,7 +33,7 @@ public class SsmController {
         return ssmService.putParameter(data);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(method = RequestMethod.DELETE, produces = { "application/json"} )
     public String deleteParameter(@RequestParam String name) {
         return ssmService.deleteParameter(name);
     }

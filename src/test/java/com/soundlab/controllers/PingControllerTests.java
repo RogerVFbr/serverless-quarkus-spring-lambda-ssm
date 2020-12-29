@@ -1,4 +1,4 @@
-package com.soundlab;
+package com.soundlab.controllers;
 
 import org.junit.jupiter.api.Test;
 
