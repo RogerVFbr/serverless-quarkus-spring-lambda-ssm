@@ -1,0 +1,18 @@
+{
+  "name": "quarkus-ssm-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "set-service-credentials": "sls config credentials --provider aws --profile quarkus_ssm --stage dev --overwrite",
+    "start-local": "serverless export-env --aws-profile quarkus_ssm && mvn compile quarkus:dev -Daws.profile=quarkus_ssm",
+    "deploy": "export JAVA_HOME=`/usr/libexec/java_home -v 11.0` && mvn clean install -Dquarkus.http.root-path=/jvm -Dquarkus.package.uber-jar=true && mvn clean install -Dquarkus.http.root-path=/native -Dnative -Dnative-image.docker-build=true -DbuildDirectory=target-native && sls deploy --aws-profile quarkus_ssm",
+    "deploy-win": "mvn clean install -Dquarkus.http.root-path=/jvm -Dquarkus.package.uber-jar=true && mvn clean install -Dquarkus.http.root-path=/native -Dnative -Dnative-image.docker-build=true -DbuildDirectory=target-native && sls deploy --aws-profile quarkus_ssm",
+    "remove": "sls remove --aws-profile quarkus_ssm"
+  },
+  "author": "Roger Freret",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-export-env": "github:arabold/serverless-export-env"
+  }
+}

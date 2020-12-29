@@ -1,0 +1,51 @@
+service: quarkus-aws-sqs
+
+provider:
+  name: aws
+  stage: dev
+  region: us-east-1
+  versionFunctions: false
+  memorySize: 512
+  timeout: 60
+  tracing:
+    lambda: true
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'lambda:InvokeFunction'
+      Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - "ssm:*"
+      Resource: "*"
+  environment:
+    SERVICE_REGION: ${self:provider.region}
+
+package:
+  individually: true
+
+functions:
+  ApiJvm:
+    runtime: java8
+    handler: io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest
+    package:
+      artifact: target/quarkus-ssm-test-1.0-SNAPSHOT-runner.jar
+    events:
+      - http:
+          path: /jvm/{any+}
+          method: ANY
+
+  ApiNative:
+    runtime: provided
+    handler: native.handler
+    package:
+      artifact: target-native/function.zip
+    environment:
+      DISABLE_SIGNAL_HANDLERS: true
+    events:
+      - http:
+          path: /native/{any+}
+          method: ANY
+
+plugins:
+  - serverless-export-env
