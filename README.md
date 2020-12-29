@@ -6,8 +6,9 @@ so no local GraalVM installation is required.
 
 ## Contents
 * [Introduction](#introduction)
-* [Technology stack](#stack)
+* [Technology stack](#technology-stack)
 * [Installation](#installation)
+* [Set AWS service credentials](#set-aws-service-credentials)
 * [Deploy and remove cloud stack](#deploy-and-remove-cloud-stack)
 * [Testing the endpoints](#testing-the-endpoints)
 * [Performance comparison](#performance-comparison)
@@ -90,7 +91,7 @@ Register your AWS credentials on the service's profile, as follows:
    notepad C:\Users\<YOUR_WINDOWS_USER_NAME>\.aws\credentials
     ```
 
-2. Use provided script to generate a local profile with the acquired credentials by running the 
+2. Generate a local profile with the acquired credentials by running the 
    command below from the project's root folder. *Pay close attention to the syntax with double 
    dashes and spacing*. Replace **<ACCESS_KEY_ID>** and **<SECRET_ACCESS_KEY>** by your aqcuired 
    credentials.
